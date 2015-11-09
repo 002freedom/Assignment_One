@@ -21,7 +21,7 @@ var sum;
 // We will use a remote console logging service for debug messages
 // Define the service variable and connnect
 // You must edit <<<change_to_your_repo_name>>> to be your repository name
-var consolere = require('console-remote-client').connect('console.re','80','<<<change_to_your_repo_name>>>');
+var consolere = require('console-remote-client').connect('console.re','80','002freedom_Assignment_One');
 
 // Function to handle web browser requests and server responses
 function handleRequest(request, response){
@@ -30,6 +30,9 @@ function handleRequest(request, response){
     // Send user the server response 
     response.end('Assignment One. Expected Sum of 6 + 3 is 9, Actual Sum returned by program is : ' + sum);
     
+    console.re.log('sum = ' + sum) ;
+    console.re.log('augend = ' + augend) ;
+    console.re.log('addend ' + addend) ;
     // ASSIGNMENT
     // 1. Add a debug message which ouputs the sum of the simple equation above. Values are available in the augend, addend 
     // and sum (global) variables
@@ -43,6 +46,7 @@ var server = http.createServer(handleRequest);
 server.listen(server_port, server_ip_address, function(){
     // This is the callback function which triggered when server is successfully listening (active).
     
+    console.re.log('the server is listening on ' + server_ip_address + server_port ) ;
     // ASSIGNMENT
     // 3. Add a debug message which ouputs a message indicating the server is started (listening for user requests).
     // 4. Add a debug message which ouputs your server ip address and your server port number. Your server ip address 
